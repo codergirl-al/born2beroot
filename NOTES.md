@@ -120,3 +120,30 @@ For encrypted volumes, backup passwords are needed
                 * Where <device> is the location to save your backup to, for example /dev/sda. And <file> is the name of your backup file, for example /media/jenn/2017-05-18_luks_sda_backup. This command backup all height key-slots.
                 * It is suggested to store that backup file into a secured, off-line, and different location. So that in the unlikely event that your computer is damage or stolen you would still be able to recover and access your backup data if any.
 </details>
+
+## AppArmor vs SELinux
+
+Both SELinux and AppArmor provide security tols that isolate appliations and limit access to an attacker that has compromised one part of the system.
+**AppArmor** grants access first, and then applies restrictions, whilst **SELinux** restricts access by default and only allows access to users with propper certifications.
+
+<details>
+<summary>Short comparsion</summary>
+
+### What is SELinux?
+
+<details>
+<summary> SELinux defines access controls for the applications, processes and files on a system. It uses security policies, which are a set of rules that tell SELinux what can or can't be acesssed, to enforce the access allowed by a policy. </summary>
+
+* SELinux checks where permissions are cached for subjects and objects using an AVC (**Access Vector Cache**)
+* In case of the inability to make a decision, it sends the request to the security server, which checks for the security content of the app or process. That is applied from the SELinux policy database and then permission is granted or denied.
+* SELinux works as a labelling system, which means that all of the fils, processes and ports in a system have an SELinux label associated with them. The kernel manages the labels during the boot.
+* SELinux uses type enforcement to enforce a policy that is defined on the system. Type enforcement is the part of an SELinux policy that defines whether a process running with a certaintype can access a file labeled with a certain type.
+</details>
+
+### What is AppArmor?
+
+<details>
+<summary>AppArmor is an effective and easy-to-use Linux application security system. AppArmor proactively protects the operating system and appliactions from external or internal threats, even zero-day attacks, by enforcing good behavior and preventing both known and unknown application flaws from being exploited - AppArmor documentaton.</summary>
+
+It supplements the traditional Unix DAC (Discretonary access control) model by providing mandatory access control (MAC). The mainline Linux Kernel has included it since v.2.6.36.
+</details>
