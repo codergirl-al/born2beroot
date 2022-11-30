@@ -48,3 +48,52 @@ Debian: Community supported including a bug tracker. At the same time it offers 
 ### I ended up choosing Debian because: it's safer to use bugs-wise and it's easier to work with compared to CentOS. Both fulfill the requirements for the project, however though, I believe that working with CentOS requires skills I do not posess yet.
 
 </details>
+
+### Encrypted partitions using LVM
+
+LVM or **Logical Volume Management**, provides a higher-level view of the disk storage on a computer system. This gives the SysAdministrator much more flexibility when it comes to allocating storage to appliactions and users.
+
+Storage volumes that are created under the control of LVM can be reszed and moved around.
+
+**Physical Volumes** or PV -> Hard disk, hard disk partitions, RAID or LUNs from a SAN.
+**Volume Groups** or VG -> Collection of one or more Physical Volumes.
+**Logical Volumes** or LV -> Virtual partitions inside Volume Groups.
+**Physical Extents** or PE -> Block of data which are necessary to manipulate the actual data.
+**Logical Extents** or LE -> Physical Extents but on a Logical Volume level. The size of blocks are the same for each logical volume in the same volume group.
+
+* ##### Encrypted LVM
+
+When formatting a LVM Volume there is the possibility to choose between encrypted or not encrypted. The encrypted options allows to protect valuable data like volume,s olid state disk or hard drive.
+
+For encrypted volumes, backup passwords are needed
+
+<details>
+<summary> How to create backup passwords (from the debian.org documentation) </summary>
+
+Steps
+
+    Add backup passwords
+
+        Run the following command in Terminal as Root
+
+        cryptsetup luksChangeKey <device> -S <slot>
+
+            Notes
+
+                Where -S means you want to edit a specific key-slot. You need to change <slot> for a number ranging from zero to 7. This number will identify which key-slot you want to edit. There are 8 key-slots total available. Ranging from zero to 7. You need to replace <device> with the path to your encrypted LVM volume. For example /dev/sda. 
+
+        It is suggested to create at least 3 backup passwords. If you want to add an additional backup password simply run the same command, but change the <slot> number to your liking. For example:
+
+        cryptsetup luksChangeKey /dev/sda -S 2
+
+    Backup passwords
+
+        Run the following command in Terminal as Root
+
+        cryptsetup luksHeaderBackup <device> --header-backup-file <file>
+
+            Notes
+
+                Where <device> is the location to save your backup to, for example /dev/sda. And <file> is the name of your backup file, for example /media/jenn/2017-05-18_luks_sda_backup. This command backup all height key-slots.
+                It is suggested to store that backup file into a secured, off-line, and different location. So that in the unlikely event that your computer is damage or stolen you would still be able to recover and access your backup data if any.
+</details>
