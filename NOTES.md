@@ -1,10 +1,10 @@
-<details>
-
 ## CentOS vs Debian
 
 ### CentOS and Debian are Linux distributions that spawn from opposite ends of the candle.
 
 CentOS is a free downstream rebuild of the commercial Red Hat Enterprise Linux distribution where, in contract, Debian is the free upstream distribution that is the base for other distributions, including the Ubuntu Linux distribution.
+
+<details>
 
 <summary> A short comparison </summary>
 
