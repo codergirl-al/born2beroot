@@ -155,6 +155,16 @@ AppArmor is an effective and easy-to-use Linux application security system. AppA
 
 It supplements the traditional Unix DAC (Discretonary access control) model by providing mandatory access control (MAC). The mainline Linux Kernel has included it since v.2.6.36.
 
+Advantages of AppArmor
+
+The main advantages of AppArmor are the simplicity and short learning curve. This module is far less complex than SELinux, making it easier to set up and manage.
+
+The tool works directly with profiles (text files) for access control, and file operations are more straightforward. This feature makes AppArmor more user-friendly than SELinux with its security policies.
+
+Thanks to the path-based implementation, AppArmor protects any file on the system and allows for rules to be specified even for files that do not exist yet. The program's learning mode makes AppArmor adaptable to changes and enforces preferred application behavior.
+
+</details>
+
 Point of comparison | AppArmor | SELinux
 | :--- | :--- | :---
 Access control | Security profiles based on paths | Security policies based on file labels
@@ -165,6 +175,5 @@ Requires complex config | No | Yes
 MLS/MCS | No | Yes
 Policy rules | Lacks flexibility | Flexible
 Level of control | Medium | High
-
-
-</details>
+ 
+ </details>
