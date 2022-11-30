@@ -49,18 +49,6 @@ Debian: Community supported including a bug tracker. At the same time it offers 
 
 </details>
 
-### Encrypted partitions using LVM
-
-LVM or **Logical Volume Management**, provides a higher-level view of the disk storage on a computer system. This gives the SysAdministrator much more flexibility when it comes to allocating storage to appliactions and users.
-
-Storage volumes that are created under the control of LVM can be reszed and moved around.
-
-**Physical Volumes** or PV -> Hard disk, hard disk partitions, RAID or LUNs from a SAN.
-**Volume Groups** or VG -> Collection of one or more Physical Volumes.
-**Logical Volumes** or LV -> Virtual partitions inside Volume Groups.
-**Physical Extents** or PE -> Block of data which are necessary to manipulate the actual data.
-**Logical Extents** or LE -> Physical Extents but on a Logical Volume level. The size of blocks are the same for each logical volume in the same volume group.
-
 ## Aptitude vs APT
 
 Both Aptitude and APT are related to package management, and very popular tools.
@@ -82,6 +70,18 @@ Key differences:
 * Aptitude can be used for more functionality/features such as automatic or manual package installation and other more refined actions on the packages.
 
 </details>
+
+### Encrypted partitions using LVM
+
+LVM or **Logical Volume Management**, provides a higher-level view of the disk storage on a computer system. This gives the SysAdministrator much more flexibility when it comes to allocating storage to appliactions and users.
+
+Storage volumes that are created under the control of LVM can be reszed and moved around.
+
+**Physical Volumes** or PV -> Hard disk, hard disk partitions, RAID or LUNs from a SAN.
+**Volume Groups** or VG -> Collection of one or more Physical Volumes.
+**Logical Volumes** or LV -> Virtual partitions inside Volume Groups.
+**Physical Extents** or PE -> Block of data which are necessary to manipulate the actual data.
+**Logical Extents** or LE -> Physical Extents but on a Logical Volume level. The size of blocks are the same for each logical volume in the same volume group.
 
 * #### Encrypted LVM
 
