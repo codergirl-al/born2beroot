@@ -149,4 +149,17 @@ Both SELinux and AppArmor provide security tols that isolate appliations and lim
 <summary>AppArmor is an effective and easy-to-use Linux application security system. AppArmor proactively protects the operating system and appliactions from external or internal threats, even zero-day attacks, by enforcing good behavior and preventing both known and unknown application flaws from being exploited - AppArmor documentaton.</summary>
 
 It supplements the traditional Unix DAC (Discretonary access control) model by providing mandatory access control (MAC). The mainline Linux Kernel has included it since v.2.6.36.
+
+Point of comparison | AppArmor | SELinux
+| :--- | :--- | :---
+Access control | Security profiles based on paths | Security policies based on file labels
+Availability | Available for any distribution, mainly used in SUSE and Ubuntu | Available for any distribution, mainly used on RHEL/Fedora systems
+Difficulty to learn | Shorter learning curve, easy set-up | Complex and less intuitive
+Independent verification | Possible | Not possible
+Requires complex config | No | Yes
+MLS/MCS | No | Yes
+Policy rules | Lacks flexibility | Flexible
+Level of control | Medium | High
+
+
 </details>
