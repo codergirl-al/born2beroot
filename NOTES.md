@@ -61,6 +61,28 @@ Storage volumes that are created under the control of LVM can be reszed and move
 **Physical Extents** or PE -> Block of data which are necessary to manipulate the actual data.
 **Logical Extents** or LE -> Physical Extents but on a Logical Volume level. The size of blocks are the same for each logical volume in the same volume group.
 
+## Aptitude vs APT
+
+Both Aptitude and APT are related to package management, and very popular tools.
+
+<details>
+<summary> Differences between Aptitude and APT </summary>
+
+**APT** stands for Advanced Packaging Tool. It's open source and it's designed to handle software installation and removal, as a commant-line tool. APT has a flexible approach, meaning that the user can configure how it works, including adding new sources or providing up-gradation options.
+
+**Aptitude** is also an Advanced Packaging Tool, but in comparison to APT it is a front-end tool that gives users access to the user-interface to access functionality. Aptitude is also used to install and remove packages. 
+Installaton: **sudo apt install aptitude** (the command apt is different from the tool APT)
+
+Aptitude allows emulating apt-get's command line. On top of that, previewing actions is possible using colors and it allows the dselect option.
+
+Key differences:
+* APT is a lower-level package manager, while Aptitude is a high level package manager.
+* Aptitude offers better functionality compared to apt-get. In fact it does contain the functionalities of pt-get, apt-mark and apt-cache.
+* Aptitude comes with an interactive UI in addition to that of the text-only.
+* Aptitude can be used for more functionality/features such as automatic or manual package installation and other more refined actions on the packages.
+
+</details>
+
 * #### Encrypted LVM
 
 When formatting a LVM Volume there is the possibility to choose between encrypted or not encrypted. The encrypted options allows to protect valuable data like volume,s olid state disk or hard drive.
@@ -70,28 +92,31 @@ For encrypted volumes, backup passwords are needed
 <details>
 <summary> How to create backup passwords (from the debian.org documentation) </summary>
 
-    Add backup passwords
+    1. Add backup passwords
 
-        Run the following command in Terminal as Root
+        1. Run the following command in Terminal as Root
 
         cryptsetup luksChangeKey <device> -S <slot>
 
             Notes
 
-                Where -S means you want to edit a specific key-slot. You need to change <slot> for a number ranging from zero to 7. This number will identify which key-slot you want to edit. There are 8 key-slots total available. Ranging from zero to 7. You need to replace <device> with the path to your encrypted LVM volume. For example /dev/sda. 
+                * Where -S means you want to edit a specific key-slot. You need to change <slot> for a number ranging from zero to 7. This number will identify which key-slot you want to edit. There are 8 key-slots total available. Ranging from zero to 7. You need to replace <device> with the path to your encrypted LVM volume. For example /dev/sda. 
 
-        It is suggested to create at least 3 backup passwords. If you want to add an additional backup password simply run the same command, but change the <slot> number to your liking. For example:
+        2. It is suggested to create at least 3 backup passwords. If you want to add an additional backup password simply run the same command, but change the <slot> number to your liking. For example:
 
+		```shell
         cryptsetup luksChangeKey /dev/sda -S 2
+		```
+    2. Backup passwords
 
-    Backup passwords
+        1. Run the following command in Terminal as Root
 
-        Run the following command in Terminal as Root
-
-        cryptsetup luksHeaderBackup <device> --header-backup-file <file>
+        ```shell
+		cryptsetup luksHeaderBackup <device> --header-backup-file <file>
+		```
 
             Notes
 
-                Where <device> is the location to save your backup to, for example /dev/sda. And <file> is the name of your backup file, for example /media/jenn/2017-05-18_luks_sda_backup. This command backup all height key-slots.
-                It is suggested to store that backup file into a secured, off-line, and different location. So that in the unlikely event that your computer is damage or stolen you would still be able to recover and access your backup data if any.
+                * Where <device> is the location to save your backup to, for example /dev/sda. And <file> is the name of your backup file, for example /media/jenn/2017-05-18_luks_sda_backup. This command backup all height key-slots.
+                * It is suggested to store that backup file into a secured, off-line, and different location. So that in the unlikely event that your computer is damage or stolen you would still be able to recover and access your backup data if any.
 </details>
