@@ -61,7 +61,7 @@ Storage volumes that are created under the control of LVM can be reszed and move
 **Physical Extents** or PE -> Block of data which are necessary to manipulate the actual data.
 **Logical Extents** or LE -> Physical Extents but on a Logical Volume level. The size of blocks are the same for each logical volume in the same volume group.
 
-* ##### Encrypted LVM
+* #### Encrypted LVM
 
 When formatting a LVM Volume there is the possibility to choose between encrypted or not encrypted. The encrypted options allows to protect valuable data like volume,s olid state disk or hard drive.
 
@@ -69,8 +69,6 @@ For encrypted volumes, backup passwords are needed
 
 <details>
 <summary> How to create backup passwords (from the debian.org documentation) </summary>
-
-Steps
 
     Add backup passwords
 
