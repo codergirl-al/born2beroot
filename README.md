@@ -8,3 +8,7 @@ You will create your first machine in VirtualBox (or UTM if you can't use Virtua
 
 - The use of VirtualBox (or UTM) is mandatory
 - You only have to turn in a signature.txt file at the root of your repository. You must paste in it the signature of your machine's virtual disk.
+
+## Operating system: Debian or CentOS
+
+* Create at least 2 encrypted partitions using LVM.
