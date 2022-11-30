@@ -75,7 +75,10 @@ Key differences:
 
 LVM or **Logical Volume Management**, provides a higher-level view of the disk storage on a computer system. This gives the SysAdministrator much more flexibility when it comes to allocating storage to appliactions and users.
 
-Storage volumes that are created under the control of LVM can be reszed and moved around.
+Storage volumes that are created under the control of LVM can be resized and moved around.
+
+<details>
+<summary>More details:</summary>
 
 **Physical Volumes** or PV -> Hard disk, hard disk partitions, RAID or LUNs from a SAN.
 **Volume Groups** or VG -> Collection of one or more Physical Volumes.
@@ -120,7 +123,7 @@ For encrypted volumes, backup passwords are needed
                 * Where <device> is the location to save your backup to, for example /dev/sda. And <file> is the name of your backup file, for example /media/jenn/2017-05-18_luks_sda_backup. This command backup all height key-slots.
                 * It is suggested to store that backup file into a secured, off-line, and different location. So that in the unlikely event that your computer is damage or stolen you would still be able to recover and access your backup data if any.
 </details>
-
+</details>
 ## AppArmor vs SELinux
 
 Both SELinux and AppArmor provide security tols that isolate appliations and limit access to an attacker that has compromised one part of the system.
