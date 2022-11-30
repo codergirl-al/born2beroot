@@ -175,5 +175,11 @@ Requires complex config | No | Yes
 MLS/MCS | No | Yes
 Policy rules | Lacks flexibility | Flexible
 Level of control | Medium | High
- 
- </details>
+</details>
+
+## UFW Firewall
+
+Uncomplicated Firewall (ufw) is a frontend for iptables and is particularly well-suited for host-based firewalls. UFW provides a framework for managing netfilter, as well as a command-line interface for manipulating the firewall.
+
+[Installation of UFW in Debian](URL 'https://wiki.debian.org/Uncomplicated%20Firewall%20%28ufw%29')
+
