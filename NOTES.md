@@ -81,10 +81,10 @@ Storage volumes that are created under the control of LVM can be resized and mov
 <summary>More details:</summary>
 
 * **Physical Volumes** or PV -> Hard disk, hard disk partitions, RAID or LUNs from a SAN.
-* **Volume Groups** or VG -> Collection of one or more Physical Volumes.
-* **Logical Volumes** or LV -> Virtual partitions inside Volume Groups.
+* **Volume Groups** or VG	 -> Collection of one or more Physical Volumes.
+* **Logical Volumes** or LV  -> Virtual partitions inside Volume Groups.
 * **Physical Extents** or PE -> Block of data which are necessary to manipulate the actual data.
-* **Logical Extents** or LE -> Physical Extents but on a Logical Volume level. The size of blocks are the same for each logical volume in the same volume group.
+* **Logical Extents** or LE  -> Physical Extents but on a Logical Volume level. The size of blocks are the same for each logical volume in the same volume group.
 
 * #### Encrypted LVM
 
