@@ -58,16 +58,17 @@ Both Aptitude and APT are related to package management, and very popular tools.
 
 **APT** stands for Advanced Packaging Tool. It's open source and it's designed to handle software installation and removal, as a commant-line tool. APT has a flexible approach, meaning that the user can configure how it works, including adding new sources or providing up-gradation options.
 
-**Aptitude** is also an Advanced Packaging Tool, but in comparison to APT it is a front-end tool that gives users access to the user-interface to access functionality. Aptitude is also used to install and remove packages. 
+**Aptitude** is also an Advanced Packaging Tool, but in comparison to APT it is a front-end tool that gives users access to the user-interface to access functionality. Aptitude is also used to install and remove packages.
 Installaton: **sudo apt install aptitude** (the command apt is different from the tool APT)
 
 Aptitude allows emulating apt-get's command line. On top of that, previewing actions is possible using colors and it allows the dselect option.
 
 Key differences:
-* APT is a lower-level package manager, while Aptitude is a high level package manager.
-* Aptitude offers better functionality compared to apt-get. In fact it does contain the functionalities of pt-get, apt-mark and apt-cache.
-* Aptitude comes with an interactive UI in addition to that of the text-only.
-* Aptitude can be used for more functionality/features such as automatic or manual package installation and other more refined actions on the packages.
+
+- APT is a lower-level package manager, while Aptitude is a high level package manager.
+- Aptitude offers better functionality compared to apt-get. In fact it does contain the functionalities of pt-get, apt-mark and apt-cache.
+- Aptitude comes with an interactive UI in addition to that of the text-only.
+- Aptitude can be used for more functionality/features such as automatic or manual package installation and other more refined actions on the packages.
 
 </details>
 
@@ -80,13 +81,13 @@ Storage volumes that are created under the control of LVM can be resized and mov
 <details>
 <summary>More details:</summary>
 
-* **Physical Volumes** or PV	-> Hard disk, hard disk partitions, RAID or LUNs from a SAN.
-* **Volume Groups** or VG		-> Collection of one or more Physical Volumes.
-* **Logical Volumes** or LV		-> Virtual partitions inside Volume Groups.
-* **Physical Extents** or PE	-> Block of data which are necessary to manipulate the actual data.
-* **Logical Extents** or LE		-> Physical Extents but on a Logical Volume level. The size of blocks are the same for each logical volume in the same volume group.
+- **Physical Volumes** or PV -> Hard disk, hard disk partitions, RAID or LUNs from a SAN.
+- **Volume Groups** or VG -> Collection of one or more Physical Volumes.
+- **Logical Volumes** or LV -> Virtual partitions inside Volume Groups.
+- **Physical Extents** or PE -> Block of data which are necessary to manipulate the actual data.
+- **Logical Extents** or LE -> Physical Extents but on a Logical Volume level. The size of blocks are the same for each logical volume in the same volume group.
 
-* #### Encrypted LVM
+- #### Encrypted LVM
 
 When formatting a LVM Volume there is the possibility to choose between encrypted or not encrypted. The encrypted options allows to protect valuable data like volume,s olid state disk or hard drive.
 
@@ -103,25 +104,26 @@ For encrypted volumes, backup passwords are needed
 
             Notes
 
-                * Where -S means you want to edit a specific key-slot. You need to change <slot> for a number ranging from zero to 7. This number will identify which key-slot you want to edit. There are 8 key-slots total available. Ranging from zero to 7. You need to replace <device> with the path to your encrypted LVM volume. For example /dev/sda. 
+                * Where -S means you want to edit a specific key-slot. You need to change <slot> for a number ranging from zero to 7. This number will identify which key-slot you want to edit. There are 8 key-slots total available. Ranging from zero to 7. You need to replace <device> with the path to your encrypted LVM volume. For example /dev/sda.
 
         2. It is suggested to create at least 3 backup passwords. If you want to add an additional backup password simply run the same command, but change the <slot> number to your liking. For example:
 
-		```shell
+    	```shell
         cryptsetup luksChangeKey /dev/sda -S 2
-		```
+    	```
     2. Backup passwords
 
         1. Run the following command in Terminal as Root
 
         ```shell
-		cryptsetup luksHeaderBackup <device> --header-backup-file <file>
-		```
+    	cryptsetup luksHeaderBackup <device> --header-backup-file <file>
+    	```
 
             Notes
 
                 * Where <device> is the location to save your backup to, for example /dev/sda. And <file> is the name of your backup file, for example /media/jenn/2017-05-18_luks_sda_backup. This command backup all height key-slots.
                 * It is suggested to store that backup file into a secured, off-line, and different location. So that in the unlikely event that your computer is damage or stolen you would still be able to recover and access your backup data if any.
+
 </details>
 </details>
 
@@ -140,10 +142,10 @@ SELinux defines access controls for the applications, processes and files on a s
 <details>
 <summary> More info </summary>
 
-* SELinux checks where permissions are cached for subjects and objects using an AVC (**Access Vector Cache**)
-* In case of the inability to make a decision, it sends the request to the security server, which checks for the security content of the app or process. That is applied from the SELinux policy database and then permission is granted or denied.
-* SELinux works as a labelling system, which means that all of the fils, processes and ports in a system have an SELinux label associated with them. The kernel manages the labels during the boot.
-* SELinux uses type enforcement to enforce a policy that is defined on the system. Type enforcement is the part of an SELinux policy that defines whether a process running with a certaintype can access a file labeled with a certain type.
+- SELinux checks where permissions are cached for subjects and objects using an AVC (**Access Vector Cache**)
+- In case of the inability to make a decision, it sends the request to the security server, which checks for the security content of the app or process. That is applied from the SELinux policy database and then permission is granted or denied.
+- SELinux works as a labelling system, which means that all of the fils, processes and ports in a system have an SELinux label associated with them. The kernel manages the labels during the boot.
+- SELinux uses type enforcement to enforce a policy that is defined on the system. Type enforcement is the part of an SELinux policy that defines whether a process running with a certaintype can access a file labeled with a certain type.
 </details>
 
 ### What is AppArmor?
@@ -165,21 +167,21 @@ Thanks to the path-based implementation, AppArmor protects any file on the syste
 
 </details>
 
-Point of comparison | AppArmor | SELinux
-| :--- | :--- | :---
-Access control | Security profiles based on paths | Security policies based on file labels
-Availability | Available for any distribution, mainly used in SUSE and Ubuntu | Available for any distribution, mainly used on RHEL/Fedora systems
-Difficulty to learn | Shorter learning curve, easy set-up | Complex and less intuitive
-Independent verification | Possible | Not possible
-Requires complex config | No | Yes
-MLS/MCS | No | Yes
-Policy rules | Lacks flexibility | Flexible
-Level of control | Medium | High
+| Point of comparison      | AppArmor                                                       | SELinux                                                            |
+| :----------------------- | :------------------------------------------------------------- | :----------------------------------------------------------------- |
+| Access control           | Security profiles based on paths                               | Security policies based on file labels                             |
+| Availability             | Available for any distribution, mainly used in SUSE and Ubuntu | Available for any distribution, mainly used on RHEL/Fedora systems |
+| Difficulty to learn      | Shorter learning curve, easy set-up                            | Complex and less intuitive                                         |
+| Independent verification | Possible                                                       | Not possible                                                       |
+| Requires complex config  | No                                                             | Yes                                                                |
+| MLS/MCS                  | No                                                             | Yes                                                                |
+| Policy rules             | Lacks flexibility                                              | Flexible                                                           |
+| Level of control         | Medium                                                         | High                                                               |
+
 </details>
 
 ## UFW Firewall
 
 Uncomplicated Firewall (ufw) is a frontend for iptables and is particularly well-suited for host-based firewalls. UFW provides a framework for managing netfilter, as well as a command-line interface for manipulating the firewall.
 
-[Installation of UFW in Debian](URL 'https://wiki.debian.org/Uncomplicated%20Firewall%20%28ufw%29')
-
+[Installation of UFW in Debian](https://wiki.debian.org/Uncomplicated%20Firewall%20%28ufw%29)
