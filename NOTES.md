@@ -177,3 +177,11 @@ Policy rules | Lacks flexibility | Flexible
 Level of control | Medium | High
  
  </details>
+
+ **lsblk** -> Lists information about all available or specified block devices. The lsblk command reads the sysfs filesystem and udev db to gather information.
+
+ ## SSH
+
+SSH stands for Secure Shell. SSH is used for connecting to a remote computer accessing files and perform administrative tasks.
+
+<summary> Enabling SSH on Debian </summary>
