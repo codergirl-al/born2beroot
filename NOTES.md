@@ -184,4 +184,8 @@ Thanks to the path-based implementation, AppArmor protects any file on the syste
 
 Uncomplicated Firewall (ufw) is a frontend for iptables and is particularly well-suited for host-based firewalls. UFW provides a framework for managing netfilter, as well as a command-line interface for manipulating the firewall.
 
+Simpler explanation: A fireawll which uses the command line for setting up iptables using a small number of easy commands.
+
 [Installation of UFW in Debian](https://wiki.debian.org/Uncomplicated%20Firewall%20%28ufw%29)
+
+## SSH
