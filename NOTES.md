@@ -188,4 +188,54 @@ Simpler explanation: A fireawll which uses the command line for setting up iptab
 
 [Installation of UFW in Debian](https://wiki.debian.org/Uncomplicated%20Firewall%20%28ufw%29)
 
+<details>
+<summary> Default commands </summary>
+Defaults  passwd_tries=3
+Defaults  badpass_message="Wrong password. please try again."
+Defaults  logfile="/var/log/sudo/sudo_config"
+Defaults  log_input, log_output
+Defaults  iolog_dir="/var/log/sudo"
+Defaults  requiretty
+Defaults  secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
+</summary>
+
 ## SSH
+SSH also known as **Secure Shell** or **Secure Socket Shell**, is a network proocol that gives uesrs, particularly system administrators, a secure way to access a computer over an unsecured network.
+
+## The password policy set up in born2beroot
+
+PASS_MAX_DAYS 30 -> MAX amount of days till the password is expired
+PASS_MIN_DAYS 2 -> MIN amount of days till the password can be changed
+
+For a strong password policy, we set up the libpam-pwquality library
+Based on the subject.pdf sheet:
+* minlen=10 -> Minimum characters a password must contain
+* ucredit=-1 -> The password has to contain at least a Mayus character. We must write it with a **-** sign, since this is how it knows that is referring to a minimum character; if we put a + sign it will refer to maximum characters.
+* dcredit=-1 -> The password has to contain at least a digit.
+* maxrepeat=3 -> The password can not have the same character repeated three continuous times
+* reject_username -> The password cnnot contain the username inside itself.
+* difok=7 -> The password has to contain at least seven different characters from the past password used.
+* enforce_for_root => We will implement this pssword policy to root.
+
+## Script
+
+A bash script is a plain text file which contains a series of commands. These commands are a mixutre of commands we would normally type ourselvs o the command line (such as ls or cp for example) and commands we could type on the command line but generally would not.
+
+<details>
+<summary> Architecture, Fiscal Cores, Virtual Cores </summary>
+#### Architecture:
+* uname -a -> Print all information, except if the CPU is unknown or the platform hardware.
+
+#### Physical cores:
+What is a physical core? -> A physical core is a CPU contained on a chip, occupying a single socket.
+* grep "physical id" /proc/cpuinfo | wc -l -> Looking inside the file "physical id" and with wc -l we count the line of the grep output.
+
+#### Virtual Cores
+A virtual core is a CPU with a separation between two areas of the processor. Virtual cores take on some of the processingo of the computer without interfering with the other area. As opposed to physical cores,w hich has something that physically separates the cores, virtual cores do not have physical separation.
+* grep processor /proc/cpuinfo | wc -l -> counting processor lines.
+
+#### RAM Memory
+**RAM** or Random Access Memory is one of the most important components in determining the performance of a system. It gives applications a place to store and access data on a short-term basis. Data can be accessed quickly because it only stores information that the computer is actively using.
+* free --mega -> free is used to get a detailed report on the systems memory usage. Provides information about the total amount of the physical and swap memory, as well as the free and used memory. --mega : displays the output in megabytes.
+
+</details>
