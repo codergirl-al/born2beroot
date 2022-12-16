@@ -236,6 +236,6 @@ A virtual core is a CPU with a separation between two areas of the processor. Vi
 
 #### RAM Memory
 **RAM** or Random Access Memory is one of the most important components in determining the performance of a system. It gives applications a place to store and access data on a short-term basis. Data can be accessed quickly because it only stores information that the computer is actively using.
-* free --mega -> free is used to get a detailed report on the systems memory usage. Provides information about the total amount of the physical and swap memory, as well as the free and used memory. --mega : displays the output in megabytes.
-
+* free --mega | awk '$1 == "Mem:" {print $3}' -> free is used to get a detailed report on the systems memory usage. Provides information about the total amount of the physical and swap memory, as well as the free and used memory. --mega : displays the output in megabytes. The data we get as an output has to be filtered. **awk** command processed data based on text files. What we need to compare or look for is the first occurrence of the word "Mem:". The third word of that row is the used memory
+** free --mega | awk '$1 == Mem:' {print $2} -> Prints the available mom
 </details>
