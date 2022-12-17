@@ -223,6 +223,7 @@ A bash script is a plain text file which contains a series of commands. These co
 
 <details>
 <summary> Detailed commands </summary>
+
 #### Architecture:
 * uname -a -> Print all information, except if the CPU is unknown or the platform hardware.
 
