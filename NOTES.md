@@ -197,7 +197,7 @@ Defaults  log_input, log_output
 Defaults  iolog_dir="/var/log/sudo"
 Defaults  requiretty
 Defaults  secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
-</summary>
+</details>
 
 ## SSH
 SSH also known as **Secure Shell** or **Secure Socket Shell**, is a network proocol that gives uesrs, particularly system administrators, a secure way to access a computer over an unsecured network.
