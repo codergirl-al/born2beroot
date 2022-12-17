@@ -268,5 +268,20 @@ vmstat 1 2 | tail -1 | awk '{print $15}'
 ```
 
 #### Last boot:
-To see the date and time of the last reboot we use the ```who``` command with the **-b** flag.
+To see the date and time of the last reboot we use the ```who``` command with the ```b``` flag. Since it shows more information we filter the output: we look for a line where the first word is "system" and we print the 3rd and 4th words of that line.
+The command:
+
+```
+who -b | awk '$1 == "system" {print $3 " " $4}'
+```
+
+#### LVM use:
+To check if LVM is active or not we will use the lsblk command. This shows us information of all the block devices (hard disks, SSD, memories, etc,.).
+The condition we are looking for is to count the number of lines in which "lvm" appears. If that number is bigger than 0 the output will be Yes, otherwise No.
+The command:
+
+```
+if [ $lsblk | grep "lvm" | wc -l) -gt 0 ]; then echo yes; else echo no; fi
+```
+
 </details>
