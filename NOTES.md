@@ -259,6 +259,14 @@ To get the percentage of the used memory:
 df -m | grep "/dev/" | grep -v "/boot" awk '{use += $3} {total += $2} END {printf("(%d%%)\n), use/total*100}'
 ```
 
+#### CPU load:
+To be able to see the percentage of CPU Usage we use the vmstat command, 
+which shows system statistics. 
 
+```
+vmstat 1 2 | tail -1 | awk '{print $15}'
+```
 
+#### Last boot:
+To see the date and time of the last reboot we use the ```who``` command with the **-b** flag.
 </details>
