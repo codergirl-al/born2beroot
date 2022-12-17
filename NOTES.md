@@ -284,4 +284,31 @@ The command:
 if [ $lsblk | grep "lvm" | wc -l) -gt 0 ]; then echo yes; else echo no; fi
 ```
 
+#### TCP Connections:
+ss command will help us look at the number of established TCP connections. Using the -ta tag we are able to filter only the tcp connections. Then we ues grep to find the established ones and we use wc -l to count the number of lines.
+The command:
+
+```
+ss -ta | gerp ESTAB | wc -l
+```
+Note-for-tomorrow: Check tcp connections on the server.
+
+#### User log:
+To count the amount of users in the system we use the ```users``` command and we add wc -w to count the words (users) we have.
+The command:
+
+```
+users | wc -w
+```
+
+#### Network:
+To obtain the host address we use the ```hostname -I``` command and for the MAC address we wil use the ```ip link``` command which is used to display or modify the network interfaces. As more than one interface, IP's etc, appear, we will use the grep command to search for what we want and so we can print on the screen exactly only IP and MAC Address.
+The command:
+
+```
+ip link | grep "link/ether" | awk '{print $2}'
+```
+
+#### Sudo:
+To get the number of commands that are executed with sudo, the ```jornalctl``` command comes in handy. It's responsible to manage system logs. 
 </details>

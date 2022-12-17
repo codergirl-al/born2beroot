@@ -13,10 +13,15 @@ MEMORY_USAGE_PERCENTAGE=$(df -m | grep "/dev/" | grep -v "/boot" awk '{use += $3
 CPU_LOAD=$(vmstat 1 3| tail -1 | awk '{print $15}')
 LAST_BOOT=$(who -b | awk '$1 == "system" {print $3 " " $4}')
 LVM_USAGE=$(if [ $lsblk | grep "lvm" | wc -l) -gt 0 ]; then echo yes; else echo no; fi)
+TCP_CONNECTIONS=$(ss -a | grep ESTAB | wc -l)
+USERS_LOG=$(users | wc -w)
+IP=$(hostname -I)
+MAC=$(ip link | grep "link/ether" | awk '{print $2}')
 
 #Calculations
 CPU_OP=$(expr 100 - $CPU_LOAD)
 CPU_LOAD_PERCENTAGE=$(printf ")
+
 #To print out
 wall"
 Broadcast message from root@apeposhi
@@ -28,8 +33,8 @@ Disk Usage: $MEMORY_USED/$TOTAL_MEMORY $MEMORY_USAGE_PERCENTAGE
 CPU Load: $CPU_LOAD_PERCENTAGE%
 Last boot: $LAST_BOOT
 LVM use: $LVM_USAGE
-Connections TCP:
-User log:
-Network:
+Connections TCP: $TCP_CONNECTIONS
+User log: $USERS_LOG
+Network: IP $IP ($MAC)
 Sudo: 
 "
