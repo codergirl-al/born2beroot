@@ -239,3 +239,16 @@ A virtual core is a CPU with a separation between two areas of the processor. Vi
 * free --mega | awk '$1 == "Mem:" {print $3}' -> free is used to get a detailed report on the systems memory usage. Provides information about the total amount of the physical and swap memory, as well as the free and used memory. --mega : displays the output in megabytes. The data we get as an output has to be filtered. **awk** command processed data based on text files. What we need to compare or look for is the first occurrence of the word "Mem:". The third word of that row is the used memory
 ** free --mega | awk '$1 == Mem:' {print $2} -> Prints the available mom
 </details>
+
+### Disk Memory
+**df** commands stands for "disk filesystem". It is used to get a complete summary of the disk space usage. To show the memory in megabytes, the -m tag comes in handy. grep -> to get the lines that contain /dev/ and we exclude (with grep -v) the lines containing /boot. The awk command will select the 3rd value of each line we need. The whole command is:
+* df -m | grep "/dev/" | grep -v "/boot" | awk '{memory_use += $3} END {print memory_use}'
+
+To obtain the total space we need to get the values from $2 instead of $3, and get the total siz in Gb.
+The command therefor would be:
+
+```
+df -m | grep "/dev/" | grep -v "/boot" | awk '{memory_result += $2} END {printf ("%.0fGb\n"), memory_result/1024}'
+```
+
+To get the percentage of the used memory:
