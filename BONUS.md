@@ -34,3 +34,35 @@ sudo apt install php-cgi php-mysql phpmyadmin
 ```
 
 #### Wordpress
+
+Wordpress is a management system focused on the creation of any type of website.
+
+```
+sudo apt install wget zip
+cd var/www/
+sudo wget https://wordpress.org/latest.zip
+sudo unzip latest.zip
+sudo mv html/ html_old/
+sudo mv wordpress/ html/
+sudo chmod -R 755 html
+```
+
+## Additionnal useful esrvice.
+
+#### LiteSpeed
+Litespeed is a proprietary web server software. It's the fourth most popular web server, and is estimated to be used by 10% of websites. 
+
+-> Before installing Litespeed we make sure the system is up to date:
+```sudo apt update```
+```sudo apt upgrade```
+
+By default, OpenLiteSpeed is avilable on Debian base repository:
+
+```
+wget -O http://rpms.litespeedtech.com/debian/enable_lst_debian_repo.sh | sudo bash
+```
+
+We connect via ssh:
+
+```ssh apeposhi@localhost -p 4242```
+
