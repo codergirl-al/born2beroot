@@ -316,5 +316,32 @@ The command:
 ```
 journalctl _COMM=sudo | grep COMMAND | wc -l
 ```
-
 </details>
+
+##Crontab
+Crontab is a background process manager. The indicated processes will be executed at the time you specify in the crontab file.
+
+To have crontab configured we must edit the crontab file wit the command:
+
+```
+sudo crontab -u root -e
+```
+To make the script execute every 10 minutes we add this:
+
+```
+# m h dom mon dow command
+*/10 * * * * sh /usr/local/bin/monitoring.sh
+```
+
+Functionality of the commands above:
+
+* **m** -> Corresponds to the minute in which the script is to be executed, from 0 to 59
+* **h** -> The exact time in the 24hr format. Range val from 0 to 23.
+* **dom** -> Refers to the day of the month.
+* **dow** -> Means the day of the week, it can be numeric or the first three letters of the day in English (mon, tue, wed, thu etc,.)
+* **user** -> Defines the userwho will execute the command, it can be root or another differet user as long as they have permission to execute the script.
+* **command** -> Refers to the command or absolute path of the script to be executed.
+
+## Signature.txt
+
+shazam signature.txt
