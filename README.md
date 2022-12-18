@@ -12,10 +12,3 @@ You will create your first machine in VirtualBox (or UTM if you can't use Virtua
 ## Operating system: Debian or CentOS
 
 * Create at least 2 encrypted partitions using LVM.
-
-NAME				MAJ:MIN	RM	SIZE	RO	TYPE	MOUNTPOINT	
-SDA					  	8:0	 0	  8G	 0	disk
-|-sda1					8:2	 0	487M	 0	part	/boot
-|-sda2					8:2	 0	  1K	 0	part
-|-sda5					5:5	 0	7.5G	 0	part
-   |-sda5_crypt
