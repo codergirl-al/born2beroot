@@ -310,5 +310,11 @@ ip link | grep "link/ether" | awk '{print $2}'
 ```
 
 #### Sudo:
-To get the number of commands that are executed with sudo, the ```jornalctl``` command comes in handy. It's responsible to manage system logs. 
+To get the number of commands that are executed with sudo, the ```jornalctl``` command comes in handy. It's responsible to manage system logs. To specify the path we use _COMM=sudo. We filter with grep the ones which say COMMAND and then we count the lines using wc -l.
+The command:
+
+```
+journalctl _COMM=sudo | grep COMMAND | wc -l
+```
+
 </details>

@@ -17,7 +17,7 @@ TCP_CONNECTIONS=$(ss -a | grep ESTAB | wc -l)
 USERS_LOG=$(users | wc -w)
 IP=$(hostname -I)
 MAC=$(ip link | grep "link/ether" | awk '{print $2}')
-
+SUDO=$(journalctl _COMM=sudo | grep COMMAND | wc -l)
 #Calculations
 CPU_OP=$(expr 100 - $CPU_LOAD)
 CPU_LOAD_PERCENTAGE=$(printf ")
@@ -36,5 +36,5 @@ LVM use: $LVM_USAGE
 Connections TCP: $TCP_CONNECTIONS
 User log: $USERS_LOG
 Network: IP $IP ($MAC)
-Sudo: 
+Sudo: $SUDO cmd
 "
