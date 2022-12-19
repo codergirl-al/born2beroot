@@ -81,4 +81,5 @@ To configure the firewall to allow connections through ports 8088 and 7080 and a
 ```sudo ufw allow 7080/tcp```
 ```sudo ufw reload```
 
-Once we haev completed the previous step we can connect. We will put in the search engine of our browser localhost:7080 and provide our login credentials.
+Once we have completed the previous step we can connect. We will put in the search engine of our browser localhost:7080 and provide our login credentials.
+
