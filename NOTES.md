@@ -291,7 +291,6 @@ The command:
 ```
 ss -ta | gerp ESTAB | wc -l
 ```
-Note-for-tomorrow: Check tcp connections on the server.
 
 #### User log:
 To count the amount of users in the system we use the ```users``` command and we add wc -w to count the words (users) we have.

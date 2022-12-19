@@ -66,3 +66,19 @@ We connect via ssh:
 
 ```ssh apeposhi@localhost -p 4242```
 
+
+
+
+Default password for openlitespeed is 123456. We will change the password to something more secure with the following command:
+
+```
+sudo /usr/local/lsws/admin/misc/admpass.sh
+```
+
+To configure the firewall to allow connections through ports 8088 and 7080 and add the rules to the port:
+
+```sudo ufw allow 8088/tcp```
+```sudo ufw allow 7080/tcp```
+```sudo ufw reload```
+
+Once we haev completed the previous step we can connect. We will put in the search engine of our browser localhost:7080 and provide our login credentials.
