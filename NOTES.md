@@ -18,9 +18,9 @@ Debian supports MIPSel, MIPS64el and s390x while CentOS does not. Much like Cent
 
 ## Package management
 
-CentOS uses the **RPM** package format and **YUM/DNF** as thep ackage manager.
+CentOS uses the **RPM** package format and **YUM/DNF** as the package manager.
 
-Debian uses the **DEB** package format and the **dpkg/APT** as thep ackage manager.
+Debian uses the **DEB** package format and the **dpkg/APT** as the package manager.
 
 Both offer full-feature package management with network-based repository support, dependency checking and resolution. Similar features are available through different interfaces.
 
